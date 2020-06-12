@@ -6,10 +6,10 @@ export default class Shoplist extends Component{
     shops:shopdata
   }
   removeShop=(id)=>{
-    const {shop}=this.state;
+    const {shops}=this.state;
     const sortedshop=shops.filter(shop=>shop.id!==id)
     this.setState({
-      shop:sortedshop
+      shops:sortedshop
     })
   }
   render(){

@@ -2,6 +2,16 @@ import React,{Component} from "react";
 
 
 export default class Store extends Component{
+  state={
+    showInfo:false
+  };
+  handleInfo=()=>{
+    this.setState({
+      showInfo:!this.state.showInfo
+    })
+  }
+
+
   render(){
     const {id,name,img,detail,address}=this.props.shop;
     const {removeShop}=this.props;
@@ -17,7 +27,12 @@ export default class Store extends Component{
         <div className="shop-info">
           <h2>{name}</h2>
           <p>{detail}</p>
-          <p>{address}</p>
+          <h6>ตั้งอยู่ที่ {""}
+           <span onClick={this.handleInfo}>
+                          <i className="fas fa-caret-square-down"></i>
+                      </span>
+          </h6>
+          {this.state.showInfo && <p>{address}</p>}
         </div>
       </div>
     )
